@@ -30,20 +30,15 @@ public class Course implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	// @Min(value = 20, message = "Course name shold not be more than 20
-	// characters")
-//	@NotNull // @column(name="",nullable=false)
 	@Size(min = 2, max = 200)
 	@Column(name = "name")
 
 	private String name;
 
-//	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "level_id")
 	private Level levelObj;
 
-//	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category categoryObj;
@@ -54,11 +49,10 @@ public class Course implements Serializable {
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<CourseSubscribedVideo> courseSubscribedVideo;
 
-	//@NotNull
 	private String tag;
-	//@NotNull
+
 	private String slug;
-//	@NotNull
+
 	@Column(name = "is_active")
 	private Boolean isActive;
 	@Column(name = "is_level_override")
@@ -70,7 +64,7 @@ public class Course implements Serializable {
 	private Boolean isSlugLogin;
 	@Column(name = "dashboard")
 	private Boolean isDashboard;
-	
+
 	private String description;
 	@Column(name = "meta_key")
 	private String metaKey;
@@ -87,12 +81,13 @@ public class Course implements Serializable {
 	@Column(name = "modified_on")
 	private LocalDateTime modifiedOn;
 	private int version;
-	@Column(name="mode")
+	@Column(name = "mode")
 	private String mode;
 	@Column(name = "completion_activity_points")
 	private int completionActivityPoints;
 	@Column(name = "enrollment_activity_points")
 	private int enrollmentActivityPoints;
+
 	public Integer getId() {
 		return id;
 	}
@@ -117,7 +112,6 @@ public class Course implements Serializable {
 		this.isActive = isActive;
 	}
 
-	
 	public int getCompletionActivityPoints() {
 		return completionActivityPoints;
 	}
@@ -133,8 +127,7 @@ public class Course implements Serializable {
 	public void setEnrollmentActivityPoints(int enrollmentActivityPoints) {
 		this.enrollmentActivityPoints = enrollmentActivityPoints;
 	}
-	
-	
+
 	public int getVersion() {
 		return version;
 	}
@@ -159,8 +152,6 @@ public class Course implements Serializable {
 		this.courseSubscribedVideo = courseSubscribedVideo;
 	}
 
-	
-
 	public String getTag() {
 		return tag;
 	}
@@ -184,7 +175,6 @@ public class Course implements Serializable {
 	public void setIsLevelOverride(Boolean isLevelOverride) {
 		this.isLevelOverride = isLevelOverride;
 	}
-
 
 	public String getDescription() {
 		return description;
@@ -234,8 +224,6 @@ public class Course implements Serializable {
 		this.modifiedBy = modifiedBy;
 	}
 
-	
-
 	public String getMode() {
 		return mode;
 	}
@@ -243,8 +231,6 @@ public class Course implements Serializable {
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
-
-
 
 	public LocalDateTime getCreatedOn() {
 		return createdOn;
@@ -302,22 +288,23 @@ public class Course implements Serializable {
 		this.isDashboard = isDashboard;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Course [categoryObj=" + categoryObj + ", completionActivityPoints=" + completionActivityPoints
-//				+ ", courseSubscribedVideo=" + courseSubscribedVideo + ", course_icon=" + course_icon + ", createdBy="
-//				+ createdBy + ", createdOn=" + createdOn + ", description=" + description + ", docObj=" + docObj
-//				+ ", enrollmentActivityPoints=" + enrollmentActivityPoints + ", id=" + id + ", isActive=" + isActive
-//				+ ", isDashboard=" + isDashboard + ", isLevelOverride=" + isLevelOverride + ", isPreSignUp="
-//				+ isPreSignUp + ", isSlugLogin=" + isSlugLogin + ", levelObj=" + levelObj + ", metaDesc=" + metaDesc
-//				+ ", metaKey=" + metaKey + ", modifiedBy=" + modifiedBy + ", modifiedOn=" + modifiedOn + ", name="
-//				+ name + ", slug=" + slug + ", tag=" + tag + ", version=" + version + "]";
-//	}
+	// @Override
+	// public String toString() {
+	// return "Course [categoryObj=" + categoryObj + ", completionActivityPoints=" +
+	// completionActivityPoints
+	// + ", courseSubscribedVideo=" + courseSubscribedVideo + ", course_icon=" +
+	// course_icon + ", createdBy="
+	// + createdBy + ", createdOn=" + createdOn + ", description=" + description +
+	// ", docObj=" + docObj
+	// + ", enrollmentActivityPoints=" + enrollmentActivityPoints + ", id=" + id +
+	// ", isActive=" + isActive
+	// + ", isDashboard=" + isDashboard + ", isLevelOverride=" + isLevelOverride +
+	// ", isPreSignUp="
+	// + isPreSignUp + ", isSlugLogin=" + isSlugLogin + ", levelObj=" + levelObj +
+	// ", metaDesc=" + metaDesc
+	// + ", metaKey=" + metaKey + ", modifiedBy=" + modifiedBy + ", modifiedOn=" +
+	// modifiedOn + ", name="
+	// + name + ", slug=" + slug + ", tag=" + tag + ", version=" + version + "]";
+	// }
 
-	
-	
 }
-
-
-
-
